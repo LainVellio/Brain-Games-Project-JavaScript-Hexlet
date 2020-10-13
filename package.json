@@ -7,6 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
+  "bin": {
+    "brain-games": "bin/brain-games"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LainVellio/frontend-project-lvl1.git"

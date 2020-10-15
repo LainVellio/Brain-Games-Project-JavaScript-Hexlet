@@ -1,7 +1,7 @@
 import { randomInteger, randomOperation } from '../src/utils.js';
 import index from '../src/index.js';
 
-export default async () => {
+export default () => {
   const arr = [];
   arr[0] = 'What is the result of the expression?';
   for (let i = 1; i < 4; i += 1) {

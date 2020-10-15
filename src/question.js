@@ -1,9 +1,9 @@
 import promptly from 'promptly';
 import { checkEven } from './utils.js';
-import greeting from './greeting.js';
+import cli from './cli.js';
 
 export default async () => {
-  const name = await greeting();
+  const name = await cli();
 
   console.log('Answer "yes" if the number is even, otherwise answer "no"');
 

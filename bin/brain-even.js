@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import question from '../src/question.js';
+import brainCalc from '../games/brain-even.js';
 
-question();
+brainCalc();

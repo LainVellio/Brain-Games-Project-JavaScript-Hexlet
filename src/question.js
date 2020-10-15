@@ -1,11 +1,12 @@
 import promptly from 'promptly';
-import checkEven from './isEven.js';
+import { checkEven } from './utils.js';
+import greeting from './greeting.js';
 
 export default async () => {
-  console.log('Welcome to the Brain Games');
-  const name = await promptly.prompt('May I have your name? ', { silent: true });
-  console.log(`Hello, ${name}!`);
+  const name = await greeting();
+
   console.log('Answer "yes" if the number is even, otherwise answer "no"');
+
   for (let i = 0; i < 3; i += 1) {
     const numQuestion = (Math.random() * 100).toFixed(0);
     const rightAnswer = checkEven(numQuestion);
@@ -15,7 +16,9 @@ export default async () => {
     if (rightAnswer === inputAnswer) {
       console.log('Correct!');
     } else {
-      console.log(`'${inputAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${name}!`);
+      console.log(
+        `'${inputAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${name}!`,
+      );
       return;
     }
   }

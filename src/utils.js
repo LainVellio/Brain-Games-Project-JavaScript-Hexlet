@@ -20,4 +20,13 @@ export const randomOperation = () => {
   return '*';
 };
 
-export default { isEven, randomInteger, randomOperation };
+export const gcd = (a, b) => {
+  if (b === 0) {
+    return a;
+  }
+  return gcd(b, a % b);
+};
+
+export default {
+  isEven, randomInteger, randomOperation, gcd,
+};

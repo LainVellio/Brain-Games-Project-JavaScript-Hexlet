@@ -6,6 +6,7 @@ import promptly from 'promptly';
 // 2. Добавить слово await перед каждым вызовом метода prompt
 // В остальном код совершенно обычный
 export default async () => {
+  console.log('Welcome to the Brain Games');
   const name = await promptly.prompt('May I have your name? ');
   console.log(`Hello, ${name}!`);
 };

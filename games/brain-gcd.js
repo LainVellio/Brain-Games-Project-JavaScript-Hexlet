@@ -1,14 +1,14 @@
-import { randomInteger, gcd } from '../src/utils.js';
-import index from '../src/index.js';
+import { getRandomInteger, getGCD } from '../src/utils.js';
+import { launchGame } from '../src/index.js';
 
 export default () => {
-  const arr = [];
-  arr[0] = 'Find the greatest common divisor of given numbers.';
-  for (let i = 1; i < 4; i += 1) {
-    const numOne = randomInteger(1, 100);
-    const numTwo = randomInteger(1, 100);
-    arr[i] = `${numOne} ${numTwo}`;
-    arr[i + 3] = String(gcd(numOne, numTwo));
-  }
-  index(arr);
+  const rules = 'Find the greatest common divisor of given numbers.';
+  const getNextQuestion = () => {
+    const numOne = getRandomInteger(1, 100);
+    const numTwo = getRandomInteger(1, 100);
+    const question = `${numOne} ${numTwo}`;
+    const answer = String(getGCD(numOne, numTwo));
+    return { answer, question };
+  };
+  launchGame(rules, getNextQuestion);
 };

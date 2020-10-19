@@ -5,13 +5,13 @@ export const isEven = (num) => {
   return false;
 };
 
-export const randomInteger = (min, max) => {
+export const getRandomInteger = (min, max) => {
   const randomNum = min + Math.random() * (max + 1 - min);
   return Math.floor(randomNum);
 };
 
-export const randomOperation = () => {
-  const randomNum = randomInteger(0, 2);
+export const getRandomOperation = () => {
+  const randomNum = getRandomInteger(0, 2);
   if (randomNum === 0) {
     return '+';
   } if (randomNum === 1) {
@@ -20,11 +20,11 @@ export const randomOperation = () => {
   return '*';
 };
 
-export const gcd = (a, b) => {
+export const getGCD = (a, b) => {
   if (b === 0) {
     return a;
   }
-  return gcd(b, a % b);
+  return getGCD(b, a % b);
 };
 
 export const isPrime = (num) => {
@@ -43,5 +43,5 @@ export const isPrime = (num) => {
 };
 
 export default {
-  isEven, randomInteger, randomOperation, gcd, isPrime,
+  isEven, getRandomInteger, getRandomOperation, getGCD, isPrime,
 };

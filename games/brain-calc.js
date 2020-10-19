@@ -1,23 +1,27 @@
-import { randomInteger, randomOperation } from '../src/utils.js';
-import index from '../src/index.js';
+import { getRandomInteger, getRandomOperation } from '../src/utils.js';
+import { launchGame } from '../src/index.js';
 
 export default () => {
-  const arr = [];
-  arr[0] = 'What is the result of the expression?';
-  for (let i = 1; i < 4; i += 1) {
-    const numOne = randomInteger(0, 100);
-    const operation = randomOperation();
-    const numTwo = randomInteger(0, 100);
-    arr[i] = `${numOne} ${operation} ${numTwo}`;
-    if (operation === '+') {
-      arr[i + 3] = String(numOne + numTwo);
+  const rules = 'What is the result of the expression?';
+  const getAnswer = (a, b, operator) => {
+    if (operator === '+') {
+      return a + b;
     }
-    if (operation === '-') {
-      arr[i + 3] = String(numOne - numTwo);
+    if (operator === '-') {
+      return a - b;
     }
-    if (operation === '*') {
-      arr[i + 3] = String(numOne * numTwo);
+    if (operator === '*') {
+      return a * b;
     }
-  }
-  index(arr);
+    return 0;
+  };
+  const getNextQuestion = () => {
+    const a = getRandomInteger(0, 10);
+    const b = getRandomInteger(0, 10);
+    const operator = getRandomOperation();
+    const question = `${a} ${operator} ${b}`;
+    const answer = String(getAnswer(a, b, operator));
+    return { question, answer };
+  };
+  launchGame(rules, getNextQuestion);
 };
